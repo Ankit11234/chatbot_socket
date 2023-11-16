@@ -4,7 +4,6 @@ const bodyParser= require ("body-parser");
 const cors =require ("cors");
 const Message =require ("./model/message.js");
 const mongoose= require ("mongoose");
-const port = 8000;
 const dotenv = require("dotenv");
 const app = express();
 const http = require('http');
@@ -15,6 +14,7 @@ const path = require('path');
 const io = new Server(server, {
   cors: {
       origin: "*"
+      // origin: "http://localhost:3000"
   },
   pingTimeout: 180000, 
   pingInterval: 30000 
@@ -34,7 +34,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 const uri =process.env.MONGO_URI
-mongoose.set('strictQuery', false);
+
 mongoose
   .connect(uri)
   .then(() => {
@@ -96,7 +96,8 @@ if (process.env.NODE_ENV === "production") {
 
 
 // DEPLOYMENT
+const PORT = process.env.PORT || 8000
 
-server.listen(port, () => {
-  console.log(`listening on port ${port}`);
+server.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });
