@@ -4,7 +4,8 @@ import io from 'socket.io-client';
 import axios from "axios";
 import { BASE_URL } from "./util";
 
-const socket = io('http://127.0.0.1:8000');
+// const socket = io('http://127.0.0.1:8000');
+const socket = io();
 
 function App() {
   const [message, setMessage] = useState("");
