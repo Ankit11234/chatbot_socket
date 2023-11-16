@@ -31,8 +31,8 @@ function App() {
   
   useEffect(()=>{
     const getData=async()=>{
-      // const res = await axios.get('/chats');
-      const res = await axios.get(`${BASE_URL}chats`);
+      const res = await axios.get('/chats');
+      // const res = await axios.get(`${BASE_URL}chats`);
       const data = res.data;
       setChats(data.message);
     }
