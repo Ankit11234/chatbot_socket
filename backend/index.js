@@ -14,7 +14,7 @@ const path = require('path');
 
 const io = new Server(server, {
   cors: {
-      origin: "http://localhost:3000"
+      origin: "*"
   },
   pingTimeout: 180000, 
   pingInterval: 30000 
