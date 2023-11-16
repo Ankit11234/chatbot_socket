@@ -34,7 +34,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 const uri =process.env.MONGO_URI
-
+mongoose.set('strictQuery', false);
 mongoose
   .connect(uri)
   .then(() => {
